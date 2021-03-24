@@ -1,7 +1,12 @@
-Start API
+
+Start API Server
 ------------
-Run `npm run dev` to generate a build for dev env .
-Run `npm start` to run your api for prod env.
+Run `npm run dev` to run the api for dev environment .
+Run `npm start` to run the api for production environment.
+
+Linting
+------------
+Run `npm lint` to run default tests. 
 
 Testing
 ------------
@@ -13,10 +18,10 @@ Build Docker image
 docker build --tag=directory-graphql-api .
 ```
 
-How to use?
+How to run the Image?
 --------------
 ```
-docker run --name directory-api-graphql -d -p 4000:4000 -v /var/run/docker.sock:/var/run/docker.sock directory-graphql-api
+docker run --name directory-api-graphql -d -p 4000:4000 directory-graphql-api
 ```
 Your GraphQL API will be available now in: `http://YOUR-SERVER:4000/graphql`
 
