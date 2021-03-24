@@ -2,17 +2,17 @@ import { gql } from "apollo-server-express";
 
 const typeDefs = gql`
     
-    type Directory {
+    type Attributes {
         name: String
         path: String
         size: String
         extension: String
         type: String
-        children: [Directory]
+        children: [Attributes]
     }
       
     type Query {
-        listing(rootPath: String!, depth: Int!): Directory
+        directoryListing(rootPath: String!, depth: Int!): Attributes
     }
 `
 

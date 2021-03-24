@@ -55,12 +55,6 @@ function buildTree(rootPath, depth) {
                         currentNode.name = path.parse(currentNode.path).name;
                     }
 
-                    // if (fs.statSync(currentNode.path).isFile()) {
-                    //     currentNode.extension = path.extname(currentNode.path);
-                    //     currentNode.type = "file";
-                    //     currentNode.name = path.parse(currentNode.path).base;
-                    // }
-
                     let childTotalSize = 0;
 
                     if (fs.statSync(childNode.path).isDirectory()) {
@@ -97,7 +91,7 @@ function buildTree(rootPath, depth) {
 
 const resolvers = {
     Query: {
-        listing: (root, {rootPath, depth}) => {
+        directoryListing: (root, {rootPath, depth}) => {
             return buildTree(rootPath, depth);
         }
     }
