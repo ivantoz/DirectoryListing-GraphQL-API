@@ -17,7 +17,7 @@ const typeDefs = gql`
 
      
     type Query {
-        directory(rootPath: String!): TreeNode
+        directoryListing(rootPath: String!): TreeNode
     }
 `
 
