@@ -1,18 +1,16 @@
-FROM node:alpine
+FROM node
 
 WORKDIR /app
 
 ENV PORT=4000
 
-COPY package.json ./
 
+COPY package.json package-lock.json ./
 
-RUN npm install pm2 -g
-
-RUN npm install
+RUN npm ci
 
 COPY . .
 
 EXPOSE $PORT
 
-CMD [ "pm2-runtime", "npm", "--", "start" ]
+CMD [ "npm", "start" ]
