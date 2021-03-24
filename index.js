@@ -1,6 +1,7 @@
 import express from "express"
 import { ApolloServer } from "apollo-server-express"
 import http from 'http';
+import { express as voyagerMiddleware } from 'graphql-voyager/middleware';
 
 import typeDefs from "./api/schema"
 import resolvers from "./api/resolvers"
@@ -48,6 +49,8 @@ const apollo = new ApolloServer({
 
 /* Applying apollo middleware to express server */
 apollo.applyMiddleware({ app })
+
+app.use('/voyager', voyagerMiddleware({ endpointUrl: '/graphql' }));
 
 /*  Creating the server based on the environment */
 const server =  http.createServer(app);
