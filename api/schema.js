@@ -14,10 +14,19 @@ const typeDefs = gql`
         children: [TreeNode]
     }
     
+    type Directory {
+        path: String
+        size: String
+        extension: String
+        type: String
+        children: [Directory]
+    }
+    
 
      
     type Query {
         directoryListing(rootPath: String!): TreeNode
+        listing(rootPath: String!): Directory
     }
 `
 
