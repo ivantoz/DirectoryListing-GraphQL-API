@@ -29,11 +29,13 @@ const convertBytes = function(bytes) {
     return (bytes / Math.pow(1024, i)).toFixed(1) + " " + sizes[i];
 }
 
-function buildTree(rootPath) {
+function buildTree(rootPath, depth) {
     try {
         const root = new TreeNode(rootPath);
 
         const stack = [root];
+
+        const LIMIT = 100000
 
         while (stack.length) {
             const currentNode = stack.pop();
@@ -53,11 +55,11 @@ function buildTree(rootPath) {
                         currentNode.name = path.parse(currentNode.path).name;
                     }
 
-                    if (fs.statSync(currentNode.path).isFile()) {
-                        currentNode.extension = path.extname(currentNode.path);
-                        currentNode.type = "file";
-                        currentNode.name = path.parse(currentNode.path).base;
-                    }
+                    // if (fs.statSync(currentNode.path).isFile()) {
+                    //     currentNode.extension = path.extname(currentNode.path);
+                    //     currentNode.type = "file";
+                    //     currentNode.name = path.parse(currentNode.path).base;
+                    // }
 
                     let childTotalSize = 0;
 
@@ -77,8 +79,10 @@ function buildTree(rootPath) {
                     }
 
                     currentNode.children.push(childNode);
+                    const isDirectory = fs.statSync(childNode.path).isDirectory();
+                    const isUnderLimit = depth <= LIMIT;
 
-                    if (fs.statSync(childNode.path).isDirectory()) {
+                    if (isDirectory && isUnderLimit) {
                         stack.push(childNode);
                     }
                 }
@@ -93,8 +97,8 @@ function buildTree(rootPath) {
 
 const resolvers = {
     Query: {
-        listing: (root, {rootPath}) => {
-            return buildTree(rootPath);
+        listing: (root, {rootPath, depth}) => {
+            return buildTree(rootPath, depth);
         }
     }
 }

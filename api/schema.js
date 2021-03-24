@@ -12,7 +12,7 @@ const typeDefs = gql`
     }
       
     type Query {
-        listing(rootPath: String!): Directory
+        listing(rootPath: String!, depth: Int!): Directory
     }
 `
 
