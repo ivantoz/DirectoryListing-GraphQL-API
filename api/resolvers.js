@@ -48,14 +48,14 @@ function buildTree(rootPath) {
                     if (fs.statSync(currentNode.path).isDirectory()) {
                         totalSize += fs.statSync(currentNode.path).size;
                         currentNode.size = convertBytes(totalSize);
-                        currentNode.type = "Directory";
+                        currentNode.type = "directory";
                         currentNode.extension = "n/a";
                         currentNode.name = path.parse(currentNode.path).name;
                     }
 
                     if (fs.statSync(currentNode.path).isFile()) {
                         currentNode.extension = path.extname(currentNode.path);
-                        currentNode.type = "File";
+                        currentNode.type = "file";
                         currentNode.name = path.parse(currentNode.path).base;
                     }
 
@@ -65,14 +65,14 @@ function buildTree(rootPath) {
                         childTotalSize += fs.statSync(childNode.path).size;
                         childNode.size = convertBytes(childTotalSize);
                         childNode.extension = "n/a";
-                        childNode.type = "Directory";
+                        childNode.type = "directory";
                         childNode.name = path.parse(childNode.path).name;
                     }
 
                     if (fs.statSync(childNode.path).isFile()) {
                         childNode.size = convertBytes(fs.statSync(childNode.path).size)
                         childNode.extension = path.extname(childNode.path);
-                        childNode.type = "File";
+                        childNode.type = "file";
                         childNode.name = path.parse(childNode.path).base;
                     }
 

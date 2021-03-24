@@ -1,13 +1,20 @@
-FROM node
+FROM node:10-alpine as builder
 
-WORKDIR /app
+ARG NODE_ENV=development
+ARG PORT=4000
+ENV NODE_ENV=${NODE_ENV}
+ENV PORT=${PORT}
 
-ENV PORT=4000
+RUN apk --no-cache add python make g++
 
+COPY package*.json ./
+RUN npm install
 
-COPY package.json package-lock.json ./
+# The instructions for second stage
+FROM node:10-alpine
 
-RUN npm ci
+WORKDIR /usr/src/app
+COPY --from=builder node_modules node_modules
 
 COPY . .
 
