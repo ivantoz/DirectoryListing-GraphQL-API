@@ -7,10 +7,16 @@ Testing
 ------------
 Run `npm test` to run default tests. 
 
+Build Docker image
+-------------------
+```
+docker build --tag=directory-graphql-api .
+```
+
 How to use?
 --------------
 ```
-docker run --name directory-graphql-api -d -p 4000:4000 -v /var/run/docker.sock:/var/run/docker.sock ivantoz/directory-graphql-api
+docker run --name directory-api-graphql -d -p 4000:4000 -v /var/run/docker.sock:/var/run/docker.sock directory-graphql-api
 ```
 Your GraphQL API will be available now in: `http://YOUR-SERVER:4000/graphql`
 
