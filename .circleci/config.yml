@@ -18,9 +18,6 @@ jobs:
       - run:
           name: lint
           command: npm run lint
-      - run:
-          name: test
-          command: npm test
   deploy:
     docker:
       - image: buildpack-deps:trusty
@@ -38,4 +35,4 @@ workflows:
       - deploy:
           filters:
             branches:
-              only: master
+              only: main
