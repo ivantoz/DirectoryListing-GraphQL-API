@@ -38,7 +38,6 @@ const myPlugin = {
     },
 };
 
-
 const apollo = new ApolloServer({
     playground: process.env.NODE_ENV !== 'production',
     typeDefs,
