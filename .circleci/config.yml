@@ -15,9 +15,9 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run:
-          name: lint
-          command: npm run lint
+#      - run:
+#          name: lint
+#          command: npm run lint
   deploy:
     docker:
       - image: buildpack-deps:trusty

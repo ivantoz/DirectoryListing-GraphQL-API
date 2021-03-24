@@ -1,4 +1,6 @@
 # Directory Listing GraphQL API
+[![Build Status](https://circleci.com/gh/ivantoz/DirectoryListing-GraphQL-API.svg?style=shield)](https://circleci.com/gh/ivantoz/DirectoryListing-GraphQL-API)
+
 Node.Js API that allows a client app to: Obtain the full directory listing of a given directory path on the local filesystem. It Include the full path, file size and attribute information in the result and cater for a large directory size ( at least 100 000)
 
 See Live API on [Heroku](https://directory-tree-api.herokuapp.com/graphql)
