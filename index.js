@@ -1,12 +1,12 @@
-import express from "express"
-import { ApolloServer } from "apollo-server-express"
+import express from "express";
+import { ApolloServer } from "apollo-server-express";
 import http from 'http';
 import { express as voyagerMiddleware } from 'graphql-voyager/middleware';
 
-import typeDefs from "./api/schema"
-import resolvers from "./api/resolvers"
+import typeDefs from "./api/schema";
+import resolvers from "./api/resolvers";
 
-const app = express()
+const app = express();
 
 const port = process.env.PORT || 4000;
 
@@ -45,14 +45,14 @@ const apollo = new ApolloServer({
     plugins: [
         myPlugin,
     ],
-})
+});
 
 /* Applying apollo middleware to express server */
-apollo.applyMiddleware({ app })
+apollo.applyMiddleware({ app });
 
 app.use('/voyager', voyagerMiddleware({ endpointUrl: '/graphql' }));
 
 /*  Creating the server based on the environment */
 const server =  http.createServer(app);
 
-server.listen({ port: port }, () => console.log(`🚀 GraphQL playground is running on ${process.env.NODE_ENV} at ${port}${apollo.graphqlPath}\``))
+server.listen({ port: port }, () => console.log(`🚀 GraphQL playground is running on ${process.env.NODE_ENV} at ${port}${apollo.graphqlPath}\``));
