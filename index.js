@@ -10,6 +10,7 @@ import resolvers from "./api/resolvers";
 const app = express();
 
 const port = process.env.PORT || 4000;
+const host = process.env.HOST || '0.0.0.0';
 
 
 const myPlugin = {
@@ -55,4 +56,4 @@ app.use('/voyager', voyagerMiddleware({ endpointUrl: '/graphql' }));
 /*  Creating the server based on the environment */
 const server =  http.createServer(app);
 
-server.listen({ port: port }, () => console.log(`🚀 GraphQL playground is running on ${process.env.NODE_ENV} at ${port}${apollo.graphqlPath}\``));
+server.listen({ port, host }, () => console.log(`🚀 GraphQL playground is running on ${process.env.NODE_ENV} at http://${host}:${port}${apollo.graphqlPath}\``));
