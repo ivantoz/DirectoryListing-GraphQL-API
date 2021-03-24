@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "babel-watch index.js",
-    "build": "babel index.js -d dist",
-    "start": "npm run build && node dist/index.js",
+    "start": "nodemon --exec babel-node index.js",
     "lint": "eslint . --ext .js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,26 +13,26 @@
   "author": "Ivan Kipyegon",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.13.10",
     "apollo-server-express": "^2.21.2",
+    "dotenv": "^8.2.0",
     "dree": "^2.6.1",
     "express": "^4.17.1",
     "graphql": "^15.5.0",
     "graphql-voyager": "^1.0.0-rc.31"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.10",
     "@babel/eslint-parser": "^7.13.10",
     "@babel/eslint-plugin": "^7.13.10",
-    "@babel/plugin-proposal-export-default-from": "^7.12.13",
-    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/node": "^7.13.12",
     "@babel/preset-env": "^7.13.12",
     "@babel/register": "^7.13.8",
     "@babel/runtime": "^7.13.10",
-    "babel-cli": "^6.26.0",
     "babel-eslint": "^10.1.0",
     "babel-preset-env": "^1.7.0",
     "babel-watch": "^7.4.1",
     "eslint": "^7.22.0",
-    "eslint-plugin-graphql": "^4.0.0"
+    "eslint-plugin-graphql": "^4.0.0",
+    "nodemon": "^2.0.7"
   }
 }

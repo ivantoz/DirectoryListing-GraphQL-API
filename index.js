@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
 import http from 'http';
@@ -9,7 +10,6 @@ import resolvers from "./api/resolvers";
 const app = express();
 
 const port = process.env.PORT || 4000;
-
 
 
 const myPlugin = {
