@@ -1,19 +1,5 @@
 const fs = require('fs');
 const path = require("path")
-const dree = require('dree');
-
-const options = {
-    stat: true,
-    normalize: true,
-    size: true,
-    hash: true,
-    sizeInBytes: true,
-    depth: 10,
-    // exclude: /node_modules/,
-    followLinks: true,
-    extensions: [ 'js']
-};
-
 
 
 class TreeNode {
@@ -102,10 +88,6 @@ function buildTree(rootPath) {
 
 const resolvers = {
     Query: {
-        directoryListing: (root, {rootPath}) => {
-           //return buildTree(rootPath)
-            return dree.scan(rootPath, options);
-        },
         listing: (root, {rootPath}) => {
             return buildTree(rootPath)
         }
