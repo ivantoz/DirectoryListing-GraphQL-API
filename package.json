@@ -4,6 +4,7 @@
   "description": "Node.Js api that allows a client app to:  Obtain the full directory listing of a given directory path on the local filesystem. Include the full path, file size and attribute information in the result",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "babel-watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,7 +16,8 @@
     "apollo-server-express": "^2.21.2",
     "dree": "^2.6.1",
     "express": "^4.17.1",
-    "graphql": "^15.5.0"
+    "graphql": "^15.5.0",
+    "graphql-voyager": "^1.0.0-rc.31"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.13.12",
