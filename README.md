@@ -2,8 +2,13 @@
 Node.Js API that allows a client app to: Obtain the full directory listing of a given directory path on the local filesystem. It Include the full path, file size and attribute information in the result and cater for a large directory size ( at least 100 000)
 
 Start API Server
-------------
+----------------
+Copy content of `env.example` file to your env file and change to your values
+
+Run `npm install` to install dependencies.
+
 Run `npm run dev` to run the api for dev environment .
+
 Run `npm start` to run the api for production environment.
 
 Linting
