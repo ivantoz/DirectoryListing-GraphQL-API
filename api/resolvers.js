@@ -54,7 +54,7 @@ function buildTree(rootPath) {
 
 const resolvers = {
     Query: {
-        directory: (root, {rootPath}) => {
+        directoryListing: (root, {rootPath}) => {
            //return buildTree(rootPath)
             return dree.scan(rootPath, options);
         }
